@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="" />
+		
+        <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+        <!-- <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script> -->
+		
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		
+		<!-- <script src="http://cdn.zingchart.com/zingchart.min.js"></script> -->
+		<!-- <script src="http://code.highcharts.com/highcharts.js"></script> -->
+		<script type="text/javascript" src="js/iscroll.js"></script>
+		<!-- <script src="js/Chart.js"></script> -->
+        <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css" /> -->
+		
+		 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+		
+        <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.css" /> -->
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" >
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+        
+        
+        
+        <title>Bluetooth Test iScroll</title>
+		
+		<script type="text/javascript">
+
+		var myScroll;
+
+		function loaded () {
+			myScroll = new IScroll('#wrapper', {
+				scrollX: true,
+				scrollY: false,
+				momentum: false,
+				snap: true,
+				snapSpeed: 400,
+				keyBindings: true,
+			});
+		}
+
+		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+		</script>
+		
+		<style type="text/css">
+		* {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		html {
+			-ms-touch-action: none;
+		}
+
+		body, ul, li {
+			padding: 0;
+			margin: 0;
+			border: 0;
+		}
+
+		body {
+			font-size: 12px;
+			font-family: ubuntu, helvetica, arial;
+			overflow: hidden; /* this is important to prevent the whole page to bounce */
+		}
+
+		#viewport {
+			position: relative;
+			width: 320px;
+			height: 240px;
+			margin: 0 auto;
+			//background: #444;
+			overflow: hidden;
+		}
+
+		#wrapper {
+			width: 200px;
+			height: 240px;
+			margin: 0 auto;
+		}
+
+		#scroller {
+			position: absolute;
+			z-index: 1;
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+			width: 800px;
+			height: 240px;
+			-webkit-transform: translateZ(0);
+			-moz-transform: translateZ(0);
+			-ms-transform: translateZ(0);
+			-o-transform: translateZ(0);
+			transform: translateZ(0);
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			-webkit-text-size-adjust: none;
+			-moz-text-size-adjust: none;
+			-ms-text-size-adjust: none;
+			-o-text-size-adjust: none;
+			text-size-adjust: none;
+			//background-color: #444;
+		}
+
+		.slide {
+			width: 200px;
+			height: 240px;
+			float: left;
+		}
+
+		.content {
+			width: 140px;
+			height: 200px;
+			//border-radius: 10px;
+			margin: 0px auto;
+			//border: 1px solid #000;
+			//box-shadow:
+				inset 2px 2px 6px rgba(255,255,255,0.6),
+				inset -2px -2px 6px rgba(0,0,0,0.6),
+				0 1px 8px rgba(0,0,0,0.8);
+		}
+
+
+		}
+
+		</style>
+    </head>
+    <body>
+
+
+				<div data-role="header" data-position="fixed" data-tap-toggle="false">
+					<!-- <a href="#mypanel" class="ui-btn-left" data-shadow="false"><img src="img/menu_icon@2x.png" height="19" /></a> -->
+					<!-- <h1 id="title" style="padding: 0; margin: 0 0; overflow: visible">Sleep Shepherd</h1> -->
+					<h1 style="padding: 0; margin: 0 0;margin-bottom: -5px; overflow: visible"><img src="img/Full Logo Big Words No Sub.png" class="" height="35" /></h1>
+					<!-- <div class="darkStripe" ><div class="whiteStripe"></div></div> -->
+					<div data-role="navbar">
+						<ul >
+							<li><a href="#lastsleep" class="currentBtn" id="lastSleepBtn"><i class='fa fa-moon-o'></i> <br>Last Sleep</a></li>
+							<li><a href="#sleeplab"  id="sleepLabBtn"><i class='fa fa-flask'></i><br>Sleep Lab</a></li>
+							<li><a href="#trends"  id="trendsBtn"><i class='fa fa-signal'></i><br>Trends</a></li>
+							<!-- <li><a href="#stats" id="statsBtn"><i class='fa fa-pie-chart'></i><br>Stats</a></li> -->
+							<li><a href="#settings" id="settingsBtn"><i class='fa fa-gear'></i><br>My Hat</a></li>
+						</ul>
+					</div>
+				</div>
+				
+				<div data-role="page">
+					<div id="viewport">
+						<div id="wrapper">
+							<div id="scroller">
+								<div class="slide">
+									<div class="content ">
+									
+										<div style="background: #d6dadf ">
+											<div id="main-pie" ></div>
+											<!-- <div style="width:33%;position:absolute; right:0px; top: 155px; text-align:center; font-weight: bold;text-shadow: 0 1px 0 #CCC; color:white;z-index: ;"><div style="display:block;width:100%;background-color:#33495d">DEEP</div><div style="display:block;width:100%;background-color:#63a2c5">LIGHT</div><div style="display:block;width:100%;background-color:#FBE372;">AWAKE</div></div> -->
+										</div>
+										
+										<!-- <div class="pieLabel"><span class="superlarge" id="lsTrend">85</span><div style="margin-top:-10px">Quality <br>Sleep Score</div></div> -->
+										<div class="pieBottomCover">
+											<div class="darkStripe" ><div class="whiteStripe"></div></div>
+											<div class="padded-div">
+												<div class="center upper" id="compare"><span id="difference">+12</span> From Your Average</div>
+												<div  class="table center" id="lastSleepStats">
+													<div class="table-row" >
+														<div class="table-cell" ><span class="large" id="lsQualitySleep">6:30</span> <br> Quality Sleep</div>
+														<div class="table-cell middle" ><img src="img/bulb@2x.png" style="width:60%;height:auto;" /></div>
+														<div class="table-cell" ><span class="large" id="lsToneTime">0</span> <br> Tones</div>
+													</div>
+												</div>
+											</div>
+											
+											
+											
+											<!-- <div id="bar-side" style="outline: 0px dashed red; height:60px;margin-top:0;margin-bottom:0;width: 100%;"></div> -->
+											<section class="rating" style="outline: 0px dashed blue;margin-top:10px;">
+												<h5 style="margin-top:0px;">Your Rating:</h5>
+												<ul>
+													<li class="active" ><a href="#"><span class="rating-cloud">&nbsp;</span></a></li>
+													<li class="active" ><a href="#"><span class="rating-cloud">&nbsp;</span></a></li>
+													<li class="active" ><a href="#"><span class="rating-cloud">&nbsp;</span></a></li>
+													<li><a href="#"><span class="rating-cloud">&nbsp;</span></a></li>
+													<li><a href="#"><span class="rating-cloud">&nbsp;</span></a></li>
+												</ul><br>
+												<!-- <img src="img/rating-chart.png" style="width: 137px;/*float: right;margin-right: 57px;margin-top: 5px;*/ margin-top: 5px;margin-left: 147px;"> -->
+											</section>
+										</div>
+									
+									</div>
+								</div>
+								<div class="slide">
+									<div class="content ">
+									
+										<div class="center"><h3 style="margin-top: 0px;padding-top: 10px"><span class="trendTitle">Last 7 Sleeps</span></h3></div>
+										<div id="trends-day" style="width: 300px; height: 180px;margin: 0 auto; outline: 0px solid blue"></div>
+										<div id="subnav" data-role="navbar" style="margin-right:0em"><ul><li><a class="current" id="daily" href="">Daily</a></li><li><a class="middle" id="weekly" href="">Weekly</a></li><li><a class="left" id="monthly" href="">Monthly</a></li><li><a class="" id="alltime" href="">All-Time</a></li></ul></div>
+										<div class="noDisplay" id="statlabelcontainer">
+											<div class="center">
+												<div class="statlabel center" id="stat1label"><span class="verylarge" id="stat1data">77</span><div style="margin-top: -10px">Avg.<br> Sleep Score</div></div><div class="statlabel center" id="stat2label"><span class="verylarge" id="stat2data">3.6</span><div style="margin-top: -10px">Avg.<br> User Rating</div></div>
+											</div>
+										</div>
+										<div class="padded-div">
+											<div class="center upper">Average for last 7 <span class="trendTitle">sleeps</span></div>
+											<div  class="table center" id="trendsStats">
+												<div class="table-row" >
+													<div class="table-cell"><span class="large" id="trendAvgScore">70</span><br>Sleep Score</div>
+													<div class="table-cell middle" ><span class="large" id="trendQuality">6:30</span> <br> Quality Sleep</div>
+													<div class="table-cell middle" ><span class="large" id="trendDeep">1</span> <br> Deep Sleep</div>
+													<div class="table-cell" ><span class="large" id="trendAvgTones">3</span> <br>Tones</div>
+												</div>
+											</div>
+										</div>
+									
+									</div>
+								</div>
+								<div class="slide">
+									<div class="content ">
+									
+										<div class="center" ><h3 id="lineTitle" style="margin-top:0;padding-top:10px;">Sleep Level</h3></div>
+										<div id="line" style="width: 100%; height: 150px"></div>
+										<div class="center">
+										<div id="scoreBtn" class="ui-btn plot-btn small currentBtn" style="display:inline-block; width: 40%;">Score View</div>
+										<div id="orientationBtn" class="ui-btn plot-btn small" style="display:inline-block; width: 40%;">Orientation View</div>
+										</div>
+
+										<div id="highchart"></div>
+										<div class="padded-div">
+											<div class="table upper center" id="sleepLabTable">
+												<div class="table-row"><div class="table-cell"><span class="label">Time of Tones</span><span class="value" id="labToneTime">0:45</span></div><div class="table-cell"><span class="label">Time Awake</span><span class="value" id="labAwakeTime">0:15</span></div></div>
+												<div class="table-row"><div class="table-cell"><span class="label">Deepest Sleep Level</span><span class="value" id="labDeepLevel">12</span></div><div class="table-cell"><span class="label">Time in light sleep</span><span class="value" id="labLightTime">3:30</span></div></div>
+												<div class="table-row"><div class="table-cell"><span class="label">Motion</span><span class="value" id="labMotion">47</span></div><div class="table-cell"><span class="label">Time in deep sleep</span><span class="value" id="labDeepTime">3:00</span></div></div>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+								<div class="slide">
+									<div class="content ">
+									
+										<div class="padded-div">
+											<a href="" id="connectBtn2" class="stand-alone" data-role="button">Connect</a>
+											<a href="" id="forgetDevice" class="stand-alone danger" data-role="button">Forget this device</a>
+											
+											
+											<div class="center"><h3>Volume Level</h3></div>
+											<div id="#volumeControlContainer"><input type="range" disabled="true" id="volumeControl" min="0" max="100" step="10" />	</div>
+											
+											<div class="center"><h3>Volume Balance</h3></div>
+											<div id="#volumeBalanceContainer"><input type="range" disabled="true" id="volumeBalance" min="-20" max="20" step="4" />	</div>		
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+				
+				<!-- LAST SLEEP -->
+				<!-- <div class="wrapper swipe" id="lastsleep" data-role="page" data-dom-cache="false" >
+					<div data-role="content" style="outline: 0px dashed blue ;background: ; z-index: 0">
+						<div id="scrollwrapper">
+							<ul> -->
+								<!-- Page One -->
+								<!-- <li>
+									<div style="background: #d6dadf ">
+										<div id="main-pie" ></div>
+										<div style="width:33%;position:absolute; right:0px; top: 155px; text-align:center; font-weight: bold;text-shadow: 0 1px 0 #CCC; color:white;z-index: ;"><div style="display:block;width:100%;background-color:#33495d">DEEP</div><div style="display:block;width:100%;background-color:#63a2c5">LIGHT</div><div style="display:block;width:100%;background-color:#FBE372;">AWAKE</div></div>
+									</div>
+									
+									<div class="pieLabel"><span class="superlarge" id="lsTrend">85</span><div style="margin-top:-10px">Quality <br>Sleep Score</div></div>
+									<div class="pieBottomCover">
+										<div class="darkStripe" ><div class="whiteStripe"></div></div>
+										<div class="padded-div">
+											<div class="center upper" id="compare"><span id="difference">+12</span> From Your Average</div>
+											<div  class="table center" id="lastSleepStats">
+												<div class="table-row" >
+													<div class="table-cell" ><span class="large" id="lsQualitySleep">6:30</span> <br> Quality Sleep</div>
+													<div class="table-cell middle" ><img src="img/bulb@2x.png" style="width:60%;height:auto;" /></div>
+													<div class="table-cell" ><span class="large" id="lsToneTime">0</span> <br> Tones</div>
+												</div>
+											</div>
+										</div> -->
+										
+										
+										
+										<!-- <div id="bar-side" style="outline: 0px dashed red; height:60px;margin-top:0;margin-bottom:0;width: 100%;"></div> -->
+										<!-- <section class="rating" style="outline: 0px dashed blue;margin-top:10px;">
+											<h5 style="margin-top:0px;">Your Rating:</h5>
+											<ul>
+												<li class="active" ><a href="#"><span class="rating-cloud">&nbsp;</span></a></li>
+												<li class="active" ><a href="#"><span class="rating-cloud">&nbsp;</span></a></li>
+												<li class="active" ><a href="#"><span class="rating-cloud">&nbsp;</span></a></li>
+												<li><a href="#"><span class="rating-cloud">&nbsp;</span></a></li>
+												<li><a href="#"><span class="rating-cloud">&nbsp;</span></a></li>
+											</ul><br> -->
+											<!-- <img src="img/rating-chart.png" style="width: 137px;/*float: right;margin-right: 57px;margin-top: 5px;*/ margin-top: 5px;margin-left: 147px;"> -->
+										<!-- </section>
+									</div>
+								</li> -->
+								<!-- Page Two -->
+								<!-- <li>
+									<div style="background: #d6dadf ">
+										<div id="main-pie" ></div>
+										<div style="width:33%;position:absolute; right:0px; top: 155px; text-align:center; font-weight: bold;text-shadow: 0 1px 0 #CCC; color:white;z-index: ;"><div style="display:block;width:100%;background-color:#33495d">DEEP</div><div style="display:block;width:100%;background-color:#63a2c5">LIGHT</div><div style="display:block;width:100%;background-color:#FBE372;">AWAKE</div></div>
+									</div>
+									
+									<div class="pieLabel"><span class="superlarge" id="lsTrend">85</span><div style="margin-top:-10px">Quality <br>Sleep Score</div></div>
+									<div class="pieBottomCover">
+										<div class="darkStripe" ><div class="whiteStripe"></div></div>
+										<div class="padded-div">
+											<div class="center upper" id="compare"><span id="difference">+12</span> From Your Average</div>
+											<div  class="table center" id="lastSleepStats">
+												<div class="table-row" >
+													<div class="table-cell" ><span class="large" id="lsQualitySleep">6:30</span> <br> Quality Sleep</div>
+													<div class="table-cell middle" ><img src="img/bulb@2x.png" style="width:60%;height:auto;" /></div>
+													<div class="table-cell" ><span class="large" id="lsToneTime">0</span> <br> Tones</div>
+												</div>
+											</div>
+										</div>
+										
+										
+										
+										<section class="rating" style="outline: 0px dashed blue;margin-top:10px;">
+											<h5 style="margin-top:0px;">Your Rating:</h5>
+											<ul>
+												<li class="active" ><a href="#"><span class="rating-cloud">&nbsp;</span></a></li>
+												<li class="active" ><a href="#"><span class="rating-cloud">&nbsp;</span></a></li>
+												<li class="active" ><a href="#"><span class="rating-cloud">&nbsp;</span></a></li>
+												<li><a href="#"><span class="rating-cloud">&nbsp;</span></a></li>
+												<li><a href="#"><span class="rating-cloud">&nbsp;</span></a></li>
+											</ul><br>
+										</section>
+									</div>
+								</li>
+							
+							</ul>
+						</div>
+												
+					</div>
+					
+				</div> --><!-- /Last Sleep Page -->
+				
+				
+				
+				
+			
+			
+				<!-- SLEEP LAB -->
+				<!-- <div class="wrapper swipe" id="sleeplab" data-role="page" data-dom-cache="false">
+					<div data-role="content" style="outline: 0px dashed blue ;">
+						<div class="center" ><h3 id="lineTitle" style="margin-top:0;padding-top:10px;">Sleep Level</h3></div>
+						<div id="line" style="width: 100%; height: 150px"></div>
+						<div class="center">
+						<div id="scoreBtn" class="ui-btn plot-btn small currentBtn" style="display:inline-block; width: 40%;">Score View</div>
+						<div id="orientationBtn" class="ui-btn plot-btn small" style="display:inline-block; width: 40%;">Orientation View</div>
+						</div>
+
+						<div id="highchart"></div>
+						<div class="padded-div">
+							<div class="table upper center" id="sleepLabTable">
+								<div class="table-row"><div class="table-cell"><span class="label">Time of Tones</span><span class="value" id="labToneTime">0:45</span></div><div class="table-cell"><span class="label">Time Awake</span><span class="value" id="labAwakeTime">0:15</span></div></div>
+								<div class="table-row"><div class="table-cell"><span class="label">Deepest Sleep Level</span><span class="value" id="labDeepLevel">12</span></div><div class="table-cell"><span class="label">Time in light sleep</span><span class="value" id="labLightTime">3:30</span></div></div>
+								<div class="table-row"><div class="table-cell"><span class="label">Motion</span><span class="value" id="labMotion">47</span></div><div class="table-cell"><span class="label">Time in deep sleep</span><span class="value" id="labDeepTime">3:00</span></div></div>
+							</div>
+						</div>
+					</div>
+				</div> --><!-- / SLEEP LAB -->
+				
+				<!-- TRENDS -->
+				<!-- <div class="wrapper swipe" id="trends" data-role="page" data-dom-cache="false">
+					<div data-role="content" style="outline: 0px dashed blue ;">
+						<div class="center"><h3 style="margin-top: 0px;padding-top: 10px"><span class="trendTitle">Last 7 Sleeps</span></h3></div>
+						<div id="trends-day" style="width: 300px; height: 180px;margin: 0 auto; outline: 0px solid blue"></div>
+						<div id="subnav" data-role="navbar" style="margin-right:0em"><ul><li><a class="current" id="daily" href="">Daily</a></li><li><a class="middle" id="weekly" href="">Weekly</a></li><li><a class="left" id="monthly" href="">Monthly</a></li><li><a class="" id="alltime" href="">All-Time</a></li></ul></div>
+						<div class="noDisplay" id="statlabelcontainer">
+							<div class="center">
+								<div class="statlabel center" id="stat1label"><span class="verylarge" id="stat1data">77</span><div style="margin-top: -10px">Avg.<br> Sleep Score</div></div><div class="statlabel center" id="stat2label"><span class="verylarge" id="stat2data">3.6</span><div style="margin-top: -10px">Avg.<br> User Rating</div></div>
+							</div>
+						</div>
+						<div class="padded-div">
+							<div class="center upper">Average for last 7 <span class="trendTitle">sleeps</span></div>
+							<div  class="table center" id="trendsStats">
+								<div class="table-row" >
+									<div class="table-cell"><span class="large" id="trendAvgScore">70</span><br>Sleep Score</div>
+									<div class="table-cell middle" ><span class="large" id="trendQuality">6:30</span> <br> Quality Sleep</div>
+									<div class="table-cell middle" ><span class="large" id="trendDeep">1</span> <br> Deep Sleep</div>
+									<div class="table-cell" ><span class="large" id="trendAvgTones">3</span> <br>Tones</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> --><!-- Trends Page -->
+				
+				<!-- STATISTICS -->
+				<!-- <div class="wrapper swipe" id="stats" data-role="page" data-dom-cache="false">
+					<div data-role="content">
+						<div class="center"><h3>All-Time Averages</h3></div>
+						<div class="center">
+						<div id="stat1" style="display:inline-block; width:300px; height: 180px;"></div>  --><!-- <div id="stat2" style="display:inline-block; width:150px;height: 180px;"></div> -->  
+						<!-- </div>
+						<div class="" id="statlabelcontainer">
+							<div class="center">
+								<div class="statlabel center" id="stat1label"><span class="verylarge" id="stat1data">77</span><div style="margin-top: -15px">Avg.<br> Sleep Score</div></div><div class="statlabel center" id="stat2label"><span class="verylarge" id="stat2data">3.6</span><div style="margin-top: -15px">Avg.<br> User Rating</div></div>
+							</div>
+						</div>
+						<div class="padded-div"> -->
+							<!-- <div class="table center" id="statTable1">
+								<div class="table-row">
+									<div class="table-cell"><span class="large">70</span><br>Sleep Score</div>
+									<div class="table-cell middle" ><span class="large">6:30</span> <br> Quality Sleep</div>
+									<div class="table-cell" ><span class="large">3</span> <br> My Rating</div>							
+								</div>
+							</div> -->
+							
+							<!-- <div class="table center" id="statTable2" style="margin-top:20px">
+								<div class="table-row">
+									<div class="table-cell"><span class="large" id="statScore">70</span><br>Sleep Score</div>
+									<div class="table-cell middle" ><span class="large" id="statQuality">6:30</span> <br> Quality Sleep</div>
+									<div class="table-cell middle" ><span class="large" id="statToneTime">1</span> <br>Tones</div>
+									<div class="table-cell" ><span class="large" id="statRating">3</span> <br> Deep Sleep</div>							
+								</div>
+							</div>							
+						</div>
+					</div>
+						
+				</div> --><!-- / STATISTICS -->
+				
+				
+				<!-- SETTINGS -->
+				<!-- <div class="wrapper swipe" id="settings" data-role="page" data-dom-cache="false">
+					<div data-role="content" style="outline: 0px dashed blue ;">
+						<div class="padded-div">
+							<a href="" id="connectBtn2" class="stand-alone" data-role="button">Connect</a>
+							<a href="" id="forgetDevice" class="stand-alone danger" data-role="button">Forget this device</a>
+							
+							
+							<div class="center"><h3>Volume Level</h3></div>
+							<div id="#volumeControlContainer"><input type="range" disabled="true" id="volumeControl" min="0" max="100" step="10" />	</div>
+							
+							<div class="center"><h3>Volume Balance</h3></div>
+							<div id="#volumeBalanceContainer"><input type="range" disabled="true" id="volumeBalance" min="-20" max="20" step="4" />	</div>		
+							
+	
+							
+						
+						</div>
+					</div>
+				</div> --><!-- / SETTINGS -->
+				
+				
+				<!-- NEW SLEEP -->
+				<!-- <div class="wrapper" id="newsleep" data-role="page" data-dom-cache="false">
+					<div data-role="content">
+						<div class="padded-div">
+							<p>Here, you can start recording a new sleep session, or upload data saved on your Sleep Shepherd. You must connect to your Sleep Shepherd to perform any actions.</p>
+							<a href="" id="connectBtn" class="stand-alone" data-role="button">Connect</a>
+							<div class="center">
+							<div class="circleButton ui-state-disabled" id="startBtn" data-role="button"><div class="vert-spacer"></div>Start Sleep</div><div class="circleButton ui-state-disabled" id="endBtn" data-role="button" ><div class="vert-spacer"></div>End Sleep</div>
+							</div>
+						</div>
+					</div>
+				</div> --><!-- / NEW SLEEP -->
+			
+			<!-- <div data-role="panel" id="mypanel" data-position="left" data-position-fixed="true" data-display="reveal">
+				<div data-role="header" style="border-bottom: 3px solid #233647; margin: -1em;margin-bottom: -1.4em;   padding: .76em;">Menu</div>
+				<ul data-role="listview">
+					<li  data-icon="false"><a class="no-top" href="#lastsleep" ><i class='fa fa-moon-o'></i>Last Sleep</a></li>
+					<li data-icon="false"><a   href="#trends"><i class='fa fa-signal'></i>Trends</a></li>
+					<li data-icon="false"><a href="#sleeplab"><i class='fa fa-flask'></i>Sleep Lab</a></li>
+					<li data-icon="false"><a href="#stats"><i class='fa fa-pie-chart'></i>Statistics</a></li>
+					<li data-icon="false"><a href="#settings"><i class='fa fa-gear'></i>Hat Settings</a></li>
+				</ul>
+			</div> -->
+			
+			
+			<!-- FOOTER -->
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+				<div  class="" id=""><a href="" data-role="button" id="sleepBtn" class="footer-full-width center" style="text-transform: uppercase"><i id="sleepIcon" class='fa fa-plus'></i> <span id="sleepName">Start Sleep</span></a></div>
+				
+			</div><!-- /FOOTER -->
+			
+			<!-- DIALOGS -->
+			
+			<!-- DISCONNECT DIALOG -->
+			<div id="reconnectPopup" data-theme="" style="background: white;" data-dismissible="false">
+				<div data-role="header"><h1 style="margin: 0 auto !important">Disconnected</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p>We've lost connection to your Sleep Shepherd. Reconnect now?</p>
+					<a href="#" id="yesReconnect" class="stand-alone" data-role="button">Yes</a>
+					<a href="#" id="noReconnect" class="stand-alone" data-role="button">No</a>
+				</div>
+			</div>
+			
+			<!-- FIRST-TIME SETUP CONFIRMATION -->
+			<div id="confirmHatPopup" data-theme="" style="background: white;" data-dismissible="false">
+				<div data-role="header"><h1 style="margin: 0 auto !important">Did it work?</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p>Is the blue LED on your Sleep Shepherd lit up?</p>
+					<a href="#" id="yesConfirmHat"  class="stand-alone" data-role="button">Yes</a>
+					<a href="#" id="noConfirmHat" class="stand-alone" data-role="button">No</a>
+				</div>
+			</div>
+	
+			<!-- AUTO CONNECT CONFIRMATION -->
+			<div id="connectPopup" data-theme="" style="background: white;" data-dismissible="true">
+				<div data-role="header"><h1 style="margin: 0 auto !important">Connect Now?</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p>The buttons here require a connection to a Sleep Shepherd. Would you like to connect now?</p>
+					<a href="#" id="yesConnect" class="stand-alone" data-role="button">Yes</a>
+					<a href="#" id="noConnect" class="stand-alone" data-role="button">No</a>
+				</div>
+			</div>
+			
+			<!-- CONNECTION TIMEOUT ALERT -->
+			<div id="timeoutPopup" data-theme="" style="background: white;" data-dismissible="true">
+				<div data-role="header"><h1 style="margin: 0 auto !important">Connection Failed</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p>Failed to connect to a Sleep Shepherd. Make sure your hat is turned on, and use the CONNECT button to try again</p>
+					<a href="#" id="closeTimeout" class="stand-alone" data-role="button">Close</a>
+				</div>
+			</div>
+			
+			<!-- NO DEVICES ALERT -->
+			<div id="noDevicesPopup" data-theme="" style="background: white;" data-dismissible="true">
+				<div data-role="header"><h1 style="margin: 0 auto !important">No Devices Found</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p>Couldn't detect any Sleep Shepherd hats. Please make sure your hat is on and use the CONNECT button to try again.</p>
+					<a href="#" id="closeNoDevices" class="stand-alone" data-role="button">Close</a>
+				</div>
+			</div>
+			
+			<!-- INSUFFICIENT DATA ALERT -->
+			<div id="noDataPopup" data-theme="" style="background: white;" data-dismissible="true">
+				<div data-role="header"><h1 style="margin: 0 auto !important">Not Enough Data</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p>There is not enough data to perform an analysis, please start a new sleep session.</p>
+					<a href="#" id="closeNoData" class="stand-alone" data-role="button">Close</a>
+				</div>
+			</div>
+			
+			<!-- FORGET DEVICE DIALOG -->
+			<div id="forgetPopup" data-theme="" style="background: white;" data-dismissible="false">
+				<div data-role="header"><h1 style="margin: 0 auto !important">Forget Device?</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p>If you forget this device, you'll have to perform setup next time you connect. Continue?</p>
+					<a href="#" id="yesForget" class="stand-alone danger" data-role="button">Yes, delete</a>
+					<a href="#" id="noForget" class="stand-alone" data-role="button">No, keep</a>
+				</div>
+			</div>
+			
+			<!-- SUCCESSFUL START -->
+			<div id="startPopup" data-theme="" style="background: white;" data-dismissible="true">
+				<div data-role="header"><h1 style="margin: 0 auto !important">Sleep started successfully</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p>A sleep session was started! When you wake up, be sure to end the session and collect the data with the End Sleep button!</p>
+					<a href="#" id="closeStart" class="stand-alone" data-role="button">Close</a>
+
+				</div>
+			</div>
+			
+			<!-- SUCCESSFUL END -->
+			<div id="endPopup" data-theme="" style="background: white;" data-dismissible="true">
+				<div data-role="header"><h1 style="margin: 0 auto !important">Data uploaded successfully</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p>The data download was successful! Check out the new data! </p>
+					<a href="#" id="closeEnd" class="stand-alone" data-role="button">Close</a>
+				</div>
+			</div>
+			
+			<!-- SUCCESSFUL END -->
+			<div id="noSavedPopup" data-theme="" style="background: white;" data-dismissible="true">
+				<div data-role="header"><h1 style="margin: 0 auto !important">No Saved Device</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p>No Sleep Shepherds have been connected to yet!</p>
+					<a href="#" id="closeNoSaved" class="stand-alone" data-role="button">Close</a>
+				</div>
+			</div>
+			
+			<!-- /DIALOGS -->
+       
+        <!-- <script type="text/javascript" src="phonegap.js"></script> -->
+		
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+		
+			/*$( document ).on( "pagecreate", function() {
+				$( "body > [data-role='panel']" ).panel().enhanceWithin();;
+				$( "body > [data-role='panel'] [data-role='listview']" ).listview();
+				$("[data-role=panel]").one("panelbeforeopen", function () {
+					var height = $.mobile.pageContainer.pagecontainer("getActivePage").outerHeight();
+					$(".ui-panel-wrapper").css("height", height + 1);
+				});
+			});*/
+			
+			$( document ).one( "pageshow", function() {
+				$( "body > [data-role='header']" ).toolbar();
+				$( "body > [data-role='header'] [data-role='navbar']" ).navbar();
+				$( "body > [data-role='footer']" ).toolbar();
+				$( "body > [data-role='footer'] [data-role='navbar']" ).navbar();
+			});
+
+			
+			
+			console.log("here");
+			
+			$(document).ready(function(){
+				var windowHeight = $(window).height();
+				var windowWidth = $(window).width();
+				var headerHeight = $('.ui-header').height();
+				var footerHeight = $('.ui-footer').height();
+				$('#viewport,#wrapper, .slide, .content ').height(windowHeight - headerHeight - footerHeight).width(windowWidth);
+				$('#scroller').height(windowHeight - headerHeight - footerHeight).width(4*windowWidth);
+				loaded();
+			});
+			
+			/*$(document).ready(function(){
+				alert("this works");
+				var volumeRange = $('#volumeControl');
+				volumeRange.on("slidestop", function(){
+					var newVal = - (volumeRange.val() - 140);
+					alert(newVal);
+					//setVolCmd(newVal);
+				});
+			});*/
+            //app.initialize();
+        </script>
+    </body>
+</html>

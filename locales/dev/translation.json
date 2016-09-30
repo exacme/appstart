@@ -1,0 +1,194 @@
+{
+
+ "navbar": {
+   "header1": "上次睡眠",
+   "header2": "睡眠分析",
+   "header3": "睡眠报告",
+   "header4" : "我的设备"
+ },
+ 
+  "lastsleep":{
+	"legend":{
+		"legend1":"深睡眠",
+		"legend2":"睡眠",
+		"legend3":"清醒"
+	},
+	"scorelabel":"睡眠质量分数",
+	"average":"平均值",
+	"table":{
+		"quality":"优质睡眠",
+		"tones":"音频开启时间"
+	},
+	"rating": "您的睡眠评分"
+ },
+ 
+ "sleeplab":{
+	"title":{
+		"sleeplevel":"睡眠等级",
+		"headorientation":"头部动作"
+	},
+	"btn-sleeplevel":"睡眠等级",
+	"btn-orientation": "头部动作",
+	"table":{
+		"timetobed":"上床时间",
+		"waketime":"醒来时间",
+		"timeofuse":"使用时间",
+		"deepsleep":"深睡时长",
+		"lightsleep":"轻睡时长",
+		"awake":"清醒时长"
+	}
+ },
+ 
+ "trends":{
+	"title": {
+		"sleeps":"过去一周",
+		"weeks":"过去七周",
+		"months":"过去七个月",
+		"alltime":"全部时间"
+	},
+	"btn":{
+		"daily":"日",
+		"weekly":"周",
+		"monthly":"月",
+		"alltime":"全部时间"
+	},
+	"table":{
+		"title": {
+			"sleeps":"过去一周平均值",
+			"weeks":"过去7周平均值",
+			"months":"过去7个月平均值",
+			"allTime":"全部时间平均值"
+		},
+		"sleepscore":"睡眠质量分数",
+		"qualitysleep":"优质睡眠",
+		"deepsleep":"深睡时长",
+		"tones":"音频开启时间"
+	},
+	"pie":{
+		"avgscore": "平均睡眠分数",
+		"avgrating": "平均等级"
+	}
+ },
+ 
+ "settings":{
+	"btn":{
+		"connect":"连接",
+		"connecting":"正在连接",
+		"connected":"已连接",
+		"forget": "清除设备"
+	},
+	"slider":{
+		"volumelevel":"音量",
+		"volumebalance":"音量均衡"
+	}
+ },
+ 
+ "footer":{
+	"start":"开始",
+	"end": "结束"
+ },
+ 
+ "popup":{
+	"disconnect":{
+		"title":"连接断开",
+		"description": "与睡眠系统失去连接。重新连接?",
+		"yes":"是",
+		"no": "否"
+	},
+	"setup":{
+		"title":"睡眠系统工作吗？",
+		"description": "睡眠系统上蓝色灯亮了吗？",
+		"yes":"是",
+		"no": "否"
+	},
+	"connecttimeout":{
+		"title":"连接失败",
+		"description": "连接失败，请确认设备已开启，并重试。",
+		"close":"关闭"
+	},
+	"nodevices":{
+		"title":"没有找到设备",
+		"description": "未找到匹配设备，请确认设备已开启，并重试。",
+		"close":"关闭"
+	},
+	"nodata":{
+		"title":"数据不全",
+		"description": "数据不全，无法分析，请重新收集。",
+		"close":"关闭"
+	},
+	"forgetdevice":{
+		"title":"确认清除设备？",
+		"description": "如果清除设备，您需要重新设置设备。继续？",
+		"yes":"清除",
+		"no": "取消"
+	},
+	"start":{
+		"title":"成功开启",
+		"description": "已进入睡眠阶段。清醒时，保存数据并关闭。",
+		"close":"关闭"
+	},
+	"end":{
+		"title":"数据上传成功",
+		"description": "数据上传成功，请查看新数据。",
+		"close":"关闭"
+	},
+	"nosaved":{
+		"title":"没有已保存的设备",
+		"description": "目前仍未连接到设备",
+		"close":"关闭"
+	},
+	"rating":{
+		"title":"请为您的睡眠质量评分",
+		"description": "请选择",
+		"close":"关闭"
+	},
+	"syncfail":{
+		"title":"Failed to get data",
+		"description": "Something went wrong while trying to get data. Please turn your hat off, and back on again, then press End Sleep again.",
+		"close":"关闭"
+	}	
+ },
+ 
+ "help":{
+	"lastsleep":{
+		"title":"Last Sleep Page",
+		"p1":"The Last Sleep page is the home page of the Sleep Shepherd app.",
+		"p2":"Here, you'll see an overview of your last sleep using your Sleep Shepherd",
+		"p3":"You'll see how much of your sleep was light sleep and deep sleep, and how long you spent awake."
+	},
+	"sleeplab":{
+		"title":"Sleep Lab Page",
+		"p1":"The Sleep Lab page gives a more detailed look at your last night's sleep.",
+		"p2":"The Sleep Level chart gives your sleep level throughout the night so you can see when you were in deep and light sleep.",
+		"p3":"The Head Orientation chart shows the amount of time your head spent facing up, left, and right."
+	},
+	"trends":{
+		"title":"Trends Page",
+		"p1":"The Trends page shows you how you've progressed since using your Sleep Shepherd.",
+		"p2":"Select Daily, Weekly, or Monthly to see how your amount of total and quality sleep has changed.",
+		"p3":"The All Time tab displays statistics that are updated every time you use your Sleep Shepherd."
+	},
+	"settings":{
+		"title":"My Hat Page",
+		"p1":"The My Hat page allows you to change settings on your Sleep Shepherd right from the app.",
+		"p2":"Connect to your hat with the Connect button, then change the volume level and volume balance (from left to right) with the sliders.",
+		"p3":"In case you wish to connect to a different hat (e.g. if another family member wants to connect their Sleep Shepherd), use the Forget device button."
+	}
+ },
+
+  "loading":{
+	"processing":"进行中",
+	"disconnecting":"未连接",
+	"starting":"开启中",
+	"retrieving":"恢复数据"
+ },
+ 
+ "plot":{
+	"hours": "小时",
+	"left": "左侧面",
+	"up": "仰面",
+	"right": "右侧面",
+	"other": "Other Orientations"
+ }
+ 
+}

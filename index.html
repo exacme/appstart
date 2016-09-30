@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c)
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+		
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		<!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+		<script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
+		
+		<script type="text/javascript" src="js/i18next-1.10.1.js"></script>
+		<!-- <script src="http://code.highcharts.com/highcharts.js"></script>
+		<script src="http://code.highcharts.com/highcharts-more.js"></script> -->
+		<script src="js/highcharts.js"></script>
+		<script src="js/highcharts-more.js"></script>
+		<!-- <script src="js/datebox.js"></script> -->
+		<script type="text/javascript" src="js/iscroll.js"></script>
+		
+		<!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> -->
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+		<!-- <link rel="stylesheet" href="css/datebox.css" /> -->
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" >
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		
+		
+		<link rel="stylesheet" type="text/css" href="css/jtsage-datebox.css" />
+        <script src="js/jtsage-datebox.min.js"></script>		
+		
+		
+        <title>Fun Jump</title>   
+		
+		<script type="text/javascript">
+			$(document).on("mobileinit",function() {
+				//alert('mobileinit');
+				$.mobile.autoInitializePage = false;
+				$.support.cors = true;
+			}); 
+			
+			$(document).ready(function(){
+				//alert('doc ready');
+				window.location.hash = 'home';
+				$.mobile.initializePage();
+			});
+		</script>
+		
+		<style type="text/css">		
+		</style>   
+		
+    </head>
+    <body>
+
+	<!-- page 1: main page 	-->
+		<div data-role="page" id="home">	
+				<div data-role="header" id="homeheader" data-position="fixed" data-tap-toggle="false" data-prefetch="false" style="background-color: #33495d ;">
+					<span id="versionlabel" style ="color:white" class="ui-btn-left"> v1.0.0  </span>
+			<!--		<span id="loginidlabel" class="ui-btn-bottom">logged in </span>	-->
+					
+					<h1 align="center" style="padding: 0px; margin: 0 0;margin-bottom: 0px;  overflow:  visible; height:50px"> 
+						<img id="headerLogo" src="img/header_logo.png" class="" height="50px" /></h1>  
+					<a id="LoginPopupBtn" class="ui-btn-right" style="color: white; background-color:transparent; border:transparent;" href="" >LOGIN</a>
+				</div>
+				<div data-role="button", style = "font-size: 24; font-weight:bold; margin: 0px 10% 0px 10%; padding:10%;">  
+					<ul>
+						<a class="ui-btn shape" style = "padding:10px;margin-top:5px;" id="playgameBtn" href="#playgamePage" ><i class='fa fa-user'></i><span data-i18n="main.button1">Play Game</span></a>
+						<a class="ui-btn shape" style = "padding:10px;margin-top:5px;" id="manageplayerBtn" href="#ManageplayerPage" ><i class='fa fa-users'></i><span data-i18n="main.button2"> Multiple Players</span></a>
+						<a class="ui-btn shape" style = "padding:10px;margin-top:5px;" id="HistoryBtn" href="#Historypage" ><i class='fa fa-area-chart'></i><span data-i18n="main.button3"> History</span></a>
+						<a class="ui-btn shape" style = "padding:10px;margin-top:5px;" id="SettingsBtn" href="#Settingspage"  ><i class='fa fa-gear'></i><span data-i18n="main.button4"> Settings</span></a>
+						<a class="ui-btn shape" style = "padding:10px;margin-top:5px;" id="SignUpBtn"href="#SignUppage" ><i class='fa fa-sign-in'></i><span data-i18n="main.button5"> Sign up</span></a>
+				<!-- 		<a class="ui-btn shape" style = "padding:10px;margin-top:5px;" id="connectBtn" href="" ><i class="fa fa-signal"></i><span data-i18n="main.button6"> Connect</span></a> -->
+						<a class="ui-btn shape"  style = "padding:10px;margin-top:5px;" id="HelpBtn" href="#Helppage" ><i class='fa fa-question-circle'></i><span data-i18n="main.button7"> Help</span></a> 
+						
+					</ul>
+				</div>
+	<!--		<div class="ui-grid-a" style="font-size:20px">
+				<div class="ui-block-a">X</div><div class="ui-block-b" id="accelX"></div>
+				<div class="ui-block-a">Y</div><div class="ui-block-b" id="accelY"></div>
+				<div class="ui-block-a">Z</div><div class="ui-block-b" id="accelZ"></div>
+			</div>	-->			
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+				<div  class="" id=""><a href="" data-role="button" id="connectBtn" class="footer-full-width center" style="text-transform: uppercase;  color:white;"><i class="fa fa-signal" aria-hidden="true"></i> <span data-i18n="">Connect</span></a></div>
+			</div>					
+		</div> 		
+		
+		<!-- page 2: single player page -->
+		<div data-role="page" id="playgamePage">	
+			<div data-role="header" id="homeheader" data-position="fixed" data-tap-toggle="false" data-prefetch="false" style="background-color: #33495d ;">
+					<span id="versionlabel" class="ui-btn-left">v1.0.0</span>
+					<h1 align="center" style="padding: 0px; margin: 0 0;margin-bottom: 0px;  overflow:  visible; height:60px"> 
+						<img id="headerLogo" src="img/header_logo.png" class="" height="60px" /></h1>  
+					<a href="#home" id="backhome" class="ui-btn-right" data-role="button" style="color: #33495d;"> <i class="fa fa-home fa-1g"></i></a>
+			</div>			
+			<div class="ui-grid-a center" style="font-weight:bold; padding: 5px; margin: 0px 15% 0px 15%; ">
+			<!--	<div class="ui-block-a" style="font-weight:bold; height:25%;padding: 15px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" >Choose Player</div></div>
+				<div class="ui-btn" align="center" style="font-weight:bold; height:20%;">  -->
+					<form data-role="listview" > 
+						<select id="playerselect">
+							<option value="0" selected="selected">Choose a player</option>
+						<!--	<option value="1"> Jesse McClure</option>
+							<option value="2"> Matt Peterson</option>
+							<option value="3"> Ryan Peterson</option>		-->								
+						</select>
+					</form>
+
+			</div>	
+			
+			<div class="ui-grid-a center" style="font-weight:bold; height:80%; padding: 10px; " id="lsTable">
+				<div class="ui-block-a" style="font-weight:bold; height:25%;padding: 5px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" >Bounce Time</div></div>
+				<div class="ui-block-b" style="font-weight:bold; height:25%;padding: 5px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" id="bouncetime"></div></div>
+				<div class="ui-block-a" style="font-weight:bold; height:25%;padding: 5px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" >Bounce Count</div></div>
+				<div class="ui-block-b" style="font-weight:bold; height:25%;padding: 5px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" id="bouncecount"></div></div>   <!--            -->
+				<div class="ui-block-a" style="font-weight:bold; height:25%;padding: 5px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" >Energy Consumption</div></div>
+				<div class="ui-block-b" style="font-weight:bold; height:25%;padding: 5px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" id="energy"></div></div>
+				<div class="ui-block-a" style="font-weight:bold; height:25%;padding: 5px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" >Height Estimate</div></div>
+				<div class="ui-block-b" style="font-weight:bold; height:25%;padding: 5px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" id="height"> 4 FT</div></div>
+				<div class="ui-block-a" style="font-weight:bold; height:25%;padding: 5px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" >Height Sum</div></div>
+				<div class="ui-block-b" style="font-weight:bold; height:25%;padding: 5px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" id="heightsum">158 FT</div></div>						
+			</div>
+			
+			<div class="ui-grid-a center" style="padding: 20px;" >	
+					<div class="ui-block-a"><a  id="startBtn"  class="stand-alone" data-role="button" data-i18n="popup.setup.yes">Start</a></div>
+					<div class="ui-block-b"><a  id="savedataBtn" class="stand-alone" data-role="button" data-i18n="popup.setup.no">Save Data</a></div>
+			</div>  			
+		</div> 	
+		
+		<!-- page 3: multiple player: add plaer page -->
+		<div data-role="page" id="ManageplayerPage">	
+			<div data-role="header" id="homeheader" data-position="fixed" data-tap-toggle="false" data-prefetch="false" style="background-color: #33495d ;">
+					<span id="versionlabel" class="ui-btn-left">v1.0.0</span>
+					<h1 align="center" style="padding: 0px; margin: 0 0;margin-bottom: 0px;  overflow:  visible; height:60px"> 
+						<img id="headerLogo" src="img/header_logo.png" class="" height="60px" /></h1>  
+					<a href="#home" id="backhome" class="ui-btn-right" data-role="button" style="color: #33495d;"> <i class="fa fa-home fa-1g"></i></a>
+			</div>			
+			<div style="height:80%; padding: 30px;" >
+				<ul>
+					<div class="button center" style="font-size: 20; font-weight: bold; text-shadow: 4; float:center;background-color:transparent;" > Manage Players </div> 
+				</ul>
+			</div>	
+			 <div  >  
+				<ul data-role="listview" id="playerlistview" class="ui-listview" style="padding:5px; border-radius: 8;margin-left: 25%;margin-right: 25%;">
+				<!-- 	<li id = ""> Jesse McClure</li>
+					<li> Matt Peterson</li>
+					<li> Ryan Peterson</li>	 -->
+				</ul>	
+			</div> 
+				<div class="ui-grid-a center" style="padding: 20px;" >					
+					<div class="ui-block-a"> <div class='ui-btn shape' style="margin-left: 20%; width: 60%;" id="addplayerBtn" >Add Player</div>	</div>	
+					<div class="ui-block-b"> <div class='ui-btn shape' style="margin-left: 20%; width: 60%;" id="deleteplayerBtn" >Delete Player</div></div>	
+				</div>
+		</div> 	
+		
+	
+		<!-- page 4: history data page -->
+		<div data-role="page" id="Historypage">				
+			<div data-role="header" id="homeheader" data-position="fixed" data-tap-toggle="false" data-prefetch="false" style="background-color: #33495d ;">
+						<span id="versionlabel" class="ui-btn-left">v1.0.0</span>
+						<h1 style="padding: 0; margin: 0 0;margin-bottom: 0px; overflow: visible; height:45px"><img id="headerLogo" src="img/header_logo.png" class="" height="45" /></h1>  
+						<a href="#home" id="backhome" class="ui-btn-right" data-role="button" style="color: #33495d;"> <i class="fa fa-home fa-1g"></i></a>
+						<div data-role="navbar">
+							<ul >
+								<li><a class="currentNav" id="LasttimeNav">Last Time</a></li>
+								<li><a id="LastweekNav">Last Week</span></a></li>
+								<li><a id="LastmonthNav">Last Month</span></a></li>
+								<li><a id="OverallNav">Overall</span></a></li>
+							</ul>
+						</div>
+			</div>
+			<div class="button center" style="font-size: 20; font-weight: bold; text-shadow: 4; float:center;background-color:transparent; padding:30px;"> Player Name </div> 
+		
+			<div class="ui-grid-b center" style="font-weight:bold; height:80%; padding: 0px; ">
+				<div class="ui-block-a" style="font-weight:bold; height:25%; padding: 15px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" >Bounce Time</div></div>
+				<div class="ui-block-b " style="font-weight:bold; height:25%;padding: 15px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle;" id="historybouncetime">  </div></div>
+				<div class="ui-block-c" style="height:25%;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" ><img id="timetoken" src="img/turtle.png" class="" height="60px" /></div></div>
+				<div class="ui-block-a" style="font-weight:bold; height:25%;padding: 15px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" >Bounce Count</div></div>
+				<div class="ui-block-b " style="font-weight:bold; height:25%;padding: 15px; "><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" id="historybouncecount">  </div></div>
+				<div class="ui-block-c" style="height:25%;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" ><img id="counttoken" src="img/elephant.png" class="" height="60px" /></div></div>
+				<div class="ui-block-a" style="font-weight:bold; height:25%;padding: 15px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" >Energy Consumption</div></div>
+				<div class="ui-block-b " style="font-weight:bold; height:25%;padding: 15px; margin-top: 12px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" id="historyenergy"> </div></div>
+				<div class="ui-block-c" style="height:25%;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" ><img id="energytoken" src="img/rabbit.png" class="" height="60px" /></div></div>
+				<div class="ui-block-a" style="font-weight:bold; height:25%;padding: 15px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" >Height Estimate</div></div>
+				<div class="ui-block-b " style="font-weight:bold; height:25%;padding: 15px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" id="historyheight">  </div></div>
+				<div class="ui-block-c" style="height:25%;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" ><img id="heighttoken" src="img/whale.png" class="" height="60px" /></div></div>
+				<div class="ui-block-a" style="font-weight:bold; height:25%;padding: 15px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" >Height Sum</div></div>
+				<div class="ui-block-b " style="font-weight:bold; height:25%;padding: 15px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" id="historyheightsum">  </div></div>						
+				<div class="ui-block-c" style="height:25%;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" ><img id="heightsumtoken" src="img/panda.png" class="" height="60px" /></div></div>
+			</div>	
+		</div>  		
+		
+		
+		<!-- page 5: settings page -->
+		<div data-role="page" id="Settingspage">	
+			<div data-role="header" id="homeheader" data-position="fixed" data-tap-toggle="false" data-prefetch="false" style="background-color: #33495d ;">
+					<span id="versionlabel" class="ui-btn-left">v1.0.0</span>
+					<h1 align="center" style="padding: 0px; margin: 0 0;margin-bottom: 0px;  overflow:  visible; height:60px"> 
+						<img id="headerLogo" src="img/header_logo.png" class="" height="60px" /></h1>  
+					<a href="#home" id="backhome" class="ui-btn-right" data-role="button" style="color: #33495d;"> <i class="fa fa-home fa-1g"></i></a>
+			</div>		
+			<div class="ui-grid-a center" style="font-weight:bold;  padding: 25%; ">
+				<div class="ui-block-a" > Language</div>
+				<div class="ui-block-b" id="selectedLanguage"> English </div>
+				<div class="ui-block-a" style="font-weight:bold; margin-top:24px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle" data-i18n="tramp.size" >Trampoline Size</div></div>
+				<div class="ui-block-b" style="font-weight:bold; margin-top:10px;"><div class="vert-spacer"></div><div style="display:inline-block;vertical-align:middle"> <input name="Trampolinesize" id="Trampolinesize" type="text" value="" > </div></div>
+			</div>
+			<div data-role="button" style = "padding:10px;margin-top:5px;" >
+				<a class="ui-btn shape" id="forgetDevice">Forget Device</span> </a>
+			</div> 
+		</div>
+	
+		<!-- page 6: create personal account page -->
+		 <div data-role="page" id="SignUppage" >
+			<div data-role="header" id="homeheader" data-position="fixed" data-tap-toggle="false" data-prefetch="false" style="background-color: #33495d ;">
+					<span id="versionlabel" class="ui-btn-left">v1.0.0</span>
+					<h1 align="center" style="padding: 0px; margin: 0 0;margin-bottom: 0px;  overflow:  visible; height:60px"> 
+						<img id="headerLogo" src="img/header_logo.png" class="" height="60px" /></h1>  
+					<a href="#home" id="backhome" class="ui-btn-right" data-role="button" style="color: #33495d;"> <i class="fa fa-home fa-1g"></i></a>
+			</div>				
+
+			<div class="padded-div"> 
+					<div class="ui-grid-a" style="padding:-5px;">	
+						<div class="ui-block-a" style="margin-top: 6px; " ><input type="text"  id="FirstName" name="FirstName" placeholder="First Name" /></div>
+						<div class="ui-block-b" style="margin-top: 6px; margin-left: 1%;" ><input type="text"  id="LastName" name="LastName" placeholder="Last Name" /></div>
+						<div class="ui-block-a" style="margin-top: -6px; " > <input type="text"  id="Userid" name="Userid" placeholder="User ID" /></div>
+						<div class="ui-block-b" style="margin-top: -6px; margin-left: 1%;" ><input type="password" id="createpassword" name="createpassword" placeholder="Password" /></div>
+						
+						<div class="ui-block-a" style="margin-top: 6px;" ><input type="text"  id="Gender" name="Gender" placeholder="Gender" /></div>	
+						<div class="ui-block-b" style="margin-top: 6px; margin-left: 1%;" ><input type="text"  id="Weight" name="Weight" placeholder="Weight" /></div>
+						<div class="ui-block-a" style="margin-top: -6px;" ><input type="text"  id="Age" name="Age" placeholder="Age" /> </div>
+						<div class="ui-block-b" style="margin-top: -6px; margin-left: 1%;" > <input type="text" id="email" name="email" placeholder="Email Address" />	</div>
+						
+						<div class="ui-block-a" style="margin-top: 6px;" ><input type="text"  id="Address1" name="Address1" placeholder="Address1 (optional)" /></div>
+						<div class="ui-block-b" style="margin-top: 6px; margin-left: 1%;" ><input type="text"  id="Address2" name="Address2" placeholder="Address2 (optional)" /></div>	
+						<div class="ui-block-a" style="margin-top: -6px;" ><input type="text"  id="City" name="City" placeholder="City (optional)" /></div>
+						<div class="ui-block-b" style="margin-top: -6px; margin-left: 1%;" ><input type="text"  id="State" name="State" placeholder="State (optional)" /></div>
+						<div class="ui-block-a" style="margin-top: -6px;" ><input type="text"  id="Zip Code" name="Zip Code" placeholder="Zip Code (optional)" /></div>
+						<div class="ui-block-b" style="margin-top: -6px; margin-left: 1%;" ><input type="text"  id="Country" name="Country" placeholder="Country (optional)" /></div>
+						
+					</div>	
+				<div class="ui-grid-a center" style="padding: 20px;" >	
+					<div class="ui-block-a"><a href="#" id="createaccountBtn"  class="stand-alone" data-role="button" data-i18n="popup.setup.yes">Create Account</a></div>
+					<div class="ui-block-b"><a href="#" id="notcreateaccountBtn" class="stand-alone" data-role="button" data-i18n="popup.setup.no">Cancel</a></div>
+				</div>  					
+
+			</div>    		
+		</div> 	
+		
+
+		
+		<!-- page 7 : help = page -->	
+		<div data-role="page" id="Helppage" >
+			<div data-role="header" id="homeheader"  data-position="fixed" data-tap-toggle="false" data-prefetch="false" style="background-color: #33495d ;">
+					<span id="versionlabel" class="ui-btn-left">v1.0.0</span>
+					<h1 align="center" style="padding: 0px; margin: 0 0;margin-bottom: 0px;  overflow:  visible; height:60px"> 
+						<img id="headerLogo" src="img/header_logo.png" class="" height="60px" /></h1>  
+					<a href="#home" id="backhome" class="ui-btn-right" data-role="button" style="color: #33495d;"> <i class="fa fa-home fa-1g"></i></a>
+			</div>	
+					
+				<div data-role="header">
+					<h1 style="margin: 0 auto !important;"><i class='fa fa-question-circle'></i> Help </span></h1>
+					<a href="#home" id="closehelp" class="ui-btn-right help helpClose" >X</a>
+				</div>
+ 
+				<div class="padded-div">
+				<p data-i18n="help.lastsleep.p1">Fun trampoline game</p>
+				<p data-i18n="help.lastsleep.p2">Record your jump, estimate your calerior.</p>
+				<p data-i18n="help.lastsleep.p3">compete with your friends.</p>
+				<p data-i18n="help.lastsleep.p3">Back up your history.</p>
+
+				</div>
+		</div> 		
+    <!-- popups from here -->							
+			<!-- when userid not find to save data, ask player to create a user ID and PW. 			-->	
+	
+			
+		<div id="LoginPopup" data-theme="" style="background: white;" data-position-to="#homeheader" data-dismissible="true">
+				<a href="" id="closelogin" class="ui-btn-right" >X</a>
+				<div data-role="header"><h1 style="margin: 0 auto !important" data-i18n="popup.start.title">Login</h1></div>
+					<form id="loginForm" method="post"> <!--<div class="padded-div" style="padding: 15px">    -->
+						<a class="ui-block-a"  style="margin-left: 10%; width: 80%; " ><input type="text" id="loginuserid" name="loginuserid" placeholder="User ID" required /></a>
+						<a class="ui-block-a"  style="margin-left: 10%; width: 80%; " ><input type="password" id="loginpassword" name="loginpassword"  placeholder="Password" required /></a>
+					</form> <!--</div> -->
+				<div class="popup-footer">
+					<a href="#" ID="loginBtn" class="stand-alone shape" data-role="button" data-i18n="popup.start.close"> Login</a>
+				</div>
+		</div>		
+			
+		<div id="CreateIDPopup" data-theme="" style="background: white;" data-position-to="#homeheader" data-dismissible="true">
+			<a href="" id="closelogin1" class="ui-btn-right" >X</a>
+				<div data-role="header"><h1 style="margin: 0 auto !important" data-i18n="popup.start.title">Create ID</h1></div>
+					<form id="createForm" method="post"> <!--<div class="padded-div" style="padding: 15px">    -->
+						<a class="ui-block-a"  style="margin-left: 10%; width: 80%; " ><input type="text" id="createID" name="createID" placeholder="User ID" required /></a>
+						<a class="ui-block-a"  style="margin-left: 10%; width: 80%; " ><input type="password" id="createpw" name="createpw"  placeholder="Password" required /></a>
+					</form> <!--</div> -->
+				<div class="popup-footer">
+					<a href="#" id="CreateplayerIDBtn" class="stand-alone shape" data-role="button" data-i18n="popup.start.close"> Create</a>
+				</div>
+		</div>	
+			
+					<!-- Add Player popup -->
+		 <div id="addplayerPopup" data-theme="" style="background: white;" data-position-to="#homeheader" data-dismissible="true">
+			<div data-role="header"><h1 style="margin: 0 auto !important" data-i18n="popup.start.title">Please add Player</h1></div>
+			<div class="padded-div"> 						
+					<!--	<div class="ui-block-a" style="margin-top: 6px; " ><input type="text"  id="FirstName" name="FirstName" placeholder="First Name" /></div>
+						<div class="ui-block-b" style="margin-top: 6px; margin-left: 1%;" ><input type="text"  id="LastName" name="LastName" placeholder="Last Name" /></div> -->
+						<div class="ui-button"  > <input type="text" id="addfirstn" name="addfirstn" placeholder="First Name" /></div>
+						<div class="ui-button"  > <input type="text" id="addlastn" name="addlastn" placeholder="Last Name" /></div>						
+				<div class="ui-grid-a popup-footer" >
+					<div class="ui-block-a"><a href="#" id="yesaddplayer"  class="stand-alone" data-role="button" data-i18n="popup.setup.yes">Add</a></div>
+					<div class="ui-block-b"><a href="#" id="notaddplayer" class="stand-alone" data-role="button" data-i18n="popup.setup.no">Cancel</a></div>
+				</div>  
+			</div> 
+			
+		</div> 	
+		
+					<!-- delete Player popup -->
+		 <div id="deleteplayerPopup" data-theme="" style="background: white;" data-dismissible="true">
+			<div data-role="header"><h1 style="margin: 0 auto !important" data-i18n="popup.start.title">Delete Player</h1></div>
+
+				<form data-role="listview" class="ui-listview" style="padding:5px; border-radius: 8;margin-left: 15%;margin-right: 15%;"> 
+						<select id="deleteselect"  >
+						<!--	<option value="0"> Jesse McClure</option>
+							<option value="1"> Matt Peterson</option>
+							<option value="2"> Ryan Peterson</option>	-->								
+						</select>
+				</form>	
+				<div class="ui-grid-a popup-footer" >
+					<div class="ui-block-a"><a href="#" id="yesdeleteplayer" class="stand-alone" data-role="button" data-i18n="popup.setup.yes">Delete</a></div>
+					<div class="ui-block-b"><a href="#" id="notdeleteplayer" class="stand-alone" data-role="button" data-i18n="popup.setup.no">Cancel</a></div>
+				</div> 				
+			
+		</div> 		
+
+			<!-- Choose a player before save data;-->
+			<div id="chooseplayerPopup" data-theme="" style="background: white;" data-dismissible="false">
+				<div data-role="header"><h1 style="margin: 0 auto !important" data-i18n="popup.disconnected.title">Choose Player</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p data-i18n="popup.disconnected.description">Please choose a player to save data.</p>
+					
+				</div>
+				<div class="popup-footer" >
+					<a href="#" id="returnBtnchoose" class="stand-alone" data-role="button" data-i18n="popup.nodevices.close">Close</a>
+				</div>
+			</div>		
+
+			<!-- DISCONNECT DIALOG -->
+			<div id="reconnectPopup" data-theme="" style="background: white;" data-dismissible="false">
+				<div data-role="header"><h1 style="margin: 0 auto !important" data-i18n="popup.disconnected.title">Disconnected</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p data-i18n="popup.disconnected.description">We've lost connection to your Sleep Shepherd. Make sure it is powered on and try again.</p>
+					
+				</div>
+				<div class="popup-footer" >
+					<a href="#" id="noReconnect" class="stand-alone" data-role="button" data-i18n="popup.nodevices.close">Close</a>
+				</div>
+			</div>
+			
+			<!-- FORCE RECONNECT POPUP -->
+			<div id="forceReconnectPopup" data-theme="" style="background: white;" data-dismissible="true">
+				<div data-role="header"><h1 style="margin: 0 auto !important" data-i18n="popup.disconnected.title">Disconnected</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p data-i18n="popup.disconnected.description">We've lost connection to your Sleep Shepherd. Make sure your device is powered on and press Reconnect</p>
+					
+				</div>
+				<div class=" popup-footer" >
+					<a href="#" id="yesForceReconnect" class="stand-alone" data-role="button" data-i18n="popup.nodevices.close">Reconnect</a>
+				</div>
+			</div>	
+			
+			<!-- Save Data to history data; -->
+			<div id="savedataPopup" data-theme="" style="background: white;" data-dismissible="false">
+				<div data-role="header"><h1 style="margin: 0 auto !important" data-i18n="popup.setup.title">Save Data</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p data-i18n="popup.setup.description" style="padding: 10px 0 ">Save data to history, continue? </p>
+					
+				</div>
+				<div class="ui-grid-a popup-footer" >
+					<div class="ui-block-a"><a href="#" id="yesSavedata"  class="stand-alone" data-role="button" data-i18n="popup.setup.yes">Continue</a></div>
+					<div class="ui-block-b"><a href="#" id="noSavedata" class="stand-alone" data-role="button" data-i18n="popup.setup.no">No</a></div>
+				</div>
+			</div>	
+		
+						<!--click Stop jump button first before savadata-->
+			<div id="continuesavePopup" data-theme="" style="background: white;" data-dismissible="true">
+				<div data-role="header"><h1 style="margin: 0 auto !important" >Continue Save</h1></div>
+				<div data-role="content" class="padded-div" >
+<<<<<<< HEAD
+					<p>Please click save button to save data!</p>
+					<a href="#" id="continuesaveBtn" class="stand-alone" data-role="button">Save</a>
+=======
+					<p>Please click continue button to save data!</p>
+					<a href="#" id="continuesaveBtn" class="stand-alone" data-role="button">Continue</a>
+>>>>>>> origin/master
+				</div>
+			</div>				
+			
+			<!-- Save Data to history data; -->
+			<div id="startnewcessionPopup" data-theme="" style="background: white;" data-dismissible="false">
+				<div data-role="header"><h1 style="margin: 0 auto !important" data-i18n="popup.setup.title">"Start New Cession</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p data-i18n="popup.setup.description" style="padding: 10px 0 ">Start a New Cession without Save Data </p>
+					
+				</div>
+				<div class="ui-grid-a popup-footer" >
+					<div class="ui-block-a"><a href="#" id="yesStartnewdata"  class="stand-alone" data-role="button" data-i18n="popup.setup.yes">Yes</a></div>
+					<div class="ui-block-b"><a href="#" id="noStartnewdata" class="stand-alone" data-role="button" data-i18n="popup.setup.no">Cancel</a></div>
+				</div>
+			</div>	
+						<!--click Stop jump button first before savadata-->
+			<div id="stopjumpPopup" data-theme="" style="background: white;" data-dismissible="true">
+				<div data-role="header"><h1 style="margin: 0 auto !important" >Stop Jump</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p>Please stop jump and click Stop button</p>
+					<a href="#" id="returnBtn" class="stand-alone" data-role="button">return</a>
+				</div>
+			</div>			
+			
+			<!-- FIRST-TIME SETUP CONFIRMATION -->
+			<div id="confirmHatPopup" data-theme="" style="background: white;" data-dismissible="false">
+				<div data-role="header"><h1 style="margin: 0 auto !important" data-i18n="popup.setup.title">Did it work?</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p data-i18n="popup.setup.description" style="padding: 10px 0 ">Is the blue LED on your Sleep Shepherd on?</p>
+					
+				</div>
+				<div class="ui-grid-a popup-footer" >
+					<div class="ui-block-a"><a href="#" id="yesConfirmHat"  class="stand-alone" data-role="button" data-i18n="popup.setup.yes">Yes</a></div>
+					<div class="ui-block-b"><a href="#" id="noConfirmHat" class="stand-alone" data-role="button" data-i18n="popup.setup.no">No</a></div>
+				</div>
+			</div>	
+						<!-- AUTO CONNECT CONFIRMATION -->
+			<div id="connectPopup" data-theme="" style="background: white;" data-dismissible="true">
+				<div data-role="header"><h1 style="margin: 0 auto !important" >Connect Now?</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p>The buttons here require a connection to a Sleep Shepherd. Would you like to connect now?</p>
+					<a href="#" id="yesConnect" class="stand-alone" data-role="button">Yes</a>
+					<a href="#" id="noConnect" class="stand-alone" data-role="button">No</a>
+				</div>
+			</div>
+			
+			<!-- CONNECTION TIMEOUT ALERT -->
+			<div id="timeoutPopup" data-theme="" style="background: white;" data-dismissible="true">
+				<div data-role="header"><h1 style="margin: 0 auto !important" data-i18n="popup.connecttimeout.title">Connection Failed</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p data-i18n="popup.connecttimeout.description" >Failed to connect to a Sleep Shepherd. Make sure your hat is turned on, and use the CONNECT button to try again</p>
+					
+				</div>
+				<div class="popup-footer">
+					<a href="#" id="closeTimeout" class="stand-alone" data-role="button" data-i18n="popup.connecttimeout.close">Close</a>
+				</div>
+			</div>
+			
+			<!-- NO DEVICES ALERT -->
+			<div id="noDevicesPopup" data-theme="" style="background: white;" data-dismissible="true">
+				<div data-role="header"><h1 style="margin: 0 auto !important" data-i18n="popup.nodevices.title">No Devices Found</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p data-i18n="popup.nodevices.description">Couldn't detect any Sleep Shepherd hats. Please make sure your hat is on and use the CONNECT button to try again.</p>
+					
+				</div>
+				<div class="popup-footer">
+					<a href="#" id="closeNoDevices" class="stand-alone" data-role="button"  data-i18n="popup.nodevices.close">Close</a>				
+				</div>
+			</div>
+			
+			<!-- FORGET DEVICE DIALOG -->
+			<div id="forgetPopup" data-theme="" style="background: white;" data-dismissible="true">
+				<div data-role="header"><h1 style="margin: 0 auto !important" data-i18n="popup.forgetdevice.title">Forget Device?</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p data-i18n="popup.forgetdevice.description">If you forget this device, you'll have to perform setup next time you connect. Continue?</p>
+				</div>
+				<div class="ui-grid-a popup-footer" >
+					<div class="ui-block-a"><a href="#" id="yesForget" class="stand-alone danger" data-role="button" data-i18n="popup.forgetdevice.yes">Yes, delete</a></div>
+					<div class="ui-block-b"><a href="#" id="noForget" class="stand-alone" data-role="button" data-i18n="popup.forgetdevice.no">No, keep</a></div>
+				</div>
+			</div>
+
+	
+			<!-- BLUETOOTH POPUP -->
+			<div id="bluetoothPopup" data-theme="" style="background: white;" data-dismissible="true">
+				<div data-role="header"><h1 style="margin: 0 auto !important" data-i18n="popup.bluetooth.title">Is bluetooth enabled?</h1></div>
+				<div data-role="content" class="padded-div" >
+					<p data-i18n="popup.bluetooth.description">To get the most out of SleepHat, make sure you have your Sleep Shepherd available and that bluetooth is enabled.</p>
+					<!-- <img src="css/images/ajax-loader.gif"/> -->
+
+				</div>
+				<div class="popup-footer">
+					<a href="#" id="closeBluetooth" class="stand-alone" data-role="button" data-i18n="popup.syncfail.close">Close</a>
+				</div>
+			</div>
+			<!-- LOADING POPUP - DISCONNECTING-->
+			<div id="disconnectingPopup" data-theme="" style="background: white;" data-dismissible="false">
+				<div data-role="content" style="padding: 1em;" class="padded-div center" >
+					<img src="css/images/ajax-loader.gif"/>
+					<p style="margin:0" data-i18n="loading.disconnecting" id="">Disconnecting</p>
+				</div>
+			</div>
+			
+			<!-- LOADING POPUP - CONNECTING-->
+			<div id="connectingPopup" data-theme="" style="background: white;" data-dismissible="false">
+				<div data-role="content" style="padding: 1em;" class="padded-div center" >
+					<img src="css/images/ajax-loader.gif"/>
+					<p style="margin:0" data-i18n="settings.btn.connecting" id="description">Connecting</p>
+				</div>
+			</div>			
+
+			<!-- GENERAL ERROR POPUP -->
+			<div id="errorPopup" data-theme="" style="background: white;" data-dismissible="true">
+				<div data-role="header"><h1 style="margin: 0 auto !important" data-i18n="popup.error.title">Oops something went wrong...</h1></div>
+				
+				<div data-role="content" class="padded-div" >
+					<p id="" data-i18n="popup.error.description">It looks like there's some saved data on your device. Would you like to retrieve this data, or start recording new data?</p>
+					<p><span data-i18n="popup.error.code">Error Code:</span> <span id="errorCode"></span></p>
+				</div>
+				
+				<div class="popup-footer">
+					<a href="#" id="closeError" class="stand-alone" data-role="button" data-i18n="popup.syncfail.close">Close</a>
+				</div>
+			</div>
+	
+			<!-- list POPUP - -->
+			<div id="listingPopup" data-theme="" style="background: white;" data-dismissible="false">
+
+			</div>		
+
+		
+        <script type="text/javascript" src="cordova.js"></script>
+		
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript"> 
+			
+			app.initialize();
+		/*	
+		$('#LoginPopup,#connectingPopup,#bluetoothPopup').enhanceWithin().popup({positionTo: "window"});			
+		$('#LoginPopupBtn').on('click',function(){
+		//	alert('login clicked');
+			$('#LoginPopup').popup('open');
+		})
+			*/
+
+        </script>
+    </body>
+</html>
+

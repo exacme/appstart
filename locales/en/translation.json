@@ -1,0 +1,377 @@
+{
+
+ "navbar": {
+   "header1": "Last Sleep",
+   "header2": "Sleep Lab",
+   "header3": "Trends",
+   "header4" : "My Hat"
+ },
+ 
+ "lastsleep":{
+	"legend":{
+		"legend1":"Deep",
+		"legend2":"Light",
+		"legend3":"Restless",
+		"legend5":"Awake",
+		"legend4":"No EEG"
+	},
+	"scorelabel":"Quality Sleep Score",
+	"pooreeg":"Poor EEG Signal",
+	"average":"From Your Average",
+	"table":{
+		"timetobed":"Time To Bed",
+		"waketime": "Wake Time",
+		"quality":"Quality Sleep",
+		"tones":"Tones",
+		"rating":"Rating"
+	},
+	"rating": "Your Rating",
+	"withinnorm": "Usual",
+	"earlier": "Earlier than usual",
+	"later": "Later than usual",
+	"example": "Example"
+ },
+ 
+ "sleeplab":{
+	"title":{
+		"sleeplevel":"Sleep Level",
+		"headorientation": "Head Orientation"
+	},
+	"btn-sleeplevel":"Sleep Level",
+	"btn-orientation": "Head Orientation",
+	"table":{
+		"timetobed":"Time To Bed",
+		"waketime":"Wake Time",
+		"timeofuse":"Time of Use",
+		"deepsleep":"Deep Sleep",
+		"lightsleep":"Light Sleep",
+		"awake":"Awake",
+		"woken":"Woke Up",
+		"score":"Score"
+	},
+	"rem": "REM"
+ },
+ 
+ "trends":{
+	"title": {
+		"sleeps":"Last 7 Sleeps",
+		"weeks":"Last 7 Weeks",
+		"months":"Last 7 Months",
+		"alltime":"All Time"
+	},
+	"btn":{
+		"daily":"Daily",
+		"weekly":"Weekly",
+		"monthly":"Monthly",
+		"alltime":"All Time"
+	},
+	"table":{
+		"title": {
+			"sleeps":"Average For Last 7 Sleeps",
+			"weeks":"Average For Last 7 Weeks",
+			"months":"Average For Last 7 Months",
+			"alltime": "Average For All Time"
+		},
+		"sleepscore":"Sleep Score",
+		"qualitysleep":"Quality Sleep",
+		"deepsleep":"Deep Sleep",
+		"tones":"Tones"
+	},
+	"pie":{
+		"avgscore": "Average Sleep Score",
+		"avgrating": "Average User Rating",
+		"avgbreakdown": "Average Sleep Breakdown"
+	}
+ },
+ 
+ "settings":{
+	"alttitle":"Settings",
+	"btn":{
+		"connect":"Connect",
+		"connecting":"Connecting",
+		"connected":"Connected",
+		"forget": "Forget Device",
+		"disconnect":"Disconnect"
+	},
+	"slider":{
+		"volumelevel":"Volume Level",
+		"volumebalance":"Volume Balance"
+	},"message":{
+		"connect":"To access volume controls, connect with the button below",
+		"disconnect":"You're connected. To disconnect, press the button below"
+	},
+	"language": "Language",
+	"volume": "Volume",
+	"alarm":"Alarm",
+	"on": "On",
+	"off":"Off",
+	"tutorial":"Tutorial"
+ },
+   
+ "footer":{
+	"start":"Start Sleep",
+	"end": "End Sleep"
+ },
+ 
+ "popup":{
+	"disconnected":{
+		"title":"Disconnected",
+		"description": "We've lost connection to your Sleep Shepherd. Make sure it is powered on and try again.",
+		"yes":"Yes",
+		"no": "No"
+	},
+	"setup":{
+		"title":"Did it work?",
+		"description": "Is the blue LED on your Sleep Shepherd on?"  ,
+		"yes":"Yes",
+		"no": "No"
+	},
+	"connecttimeout":{
+		"title":"Connection Failed",
+		"description": "Failed to connect to a Sleep Shepherd. Try turning your Sleep Shepherd off and back on and try again",
+		"close":"Close"
+	},
+	"nodevices":{
+		"title":"No Devices Found",
+		"description": "Couldn't detect any Sleep Shepherd devices. Please make sure your Sleep Shepherd is on try again.",
+		"close":"Close"
+	},
+	"nodata":{
+		"title":"Not Enough Data",
+		"description": "There is not enough data to perform an analysis, please start a new sleep session.",
+		"close":"Close"
+	},
+	"forgetdevice":{
+		"title":"Forget Device?",
+		"description": "If you forget this Sleep Shepherd, you'll have to perform setup next time you connect. Continue?",
+		"yes":"Yes, forget",
+		"no": "No, keep"
+	},
+	"start":{
+		"title":"Sleep started successfully",
+		"description": "A sleep session was started! When you wake up, be sure to end the session and collect the data with the End Sleep button! Do not turn off the headband unit until you press End Sleep!",
+		"close":"Close"
+	},
+	"end":{
+		"title":"Data uploaded successfully",
+		"description": "The data download was successful! Check out the new data!",
+		"close":"Close"
+	},
+	"nosaved":{
+		"title":"No saved devices",
+		"description": "No Sleep Shepherds have been connected to yet!",
+		"close":"Close"
+	},
+	"rating":{
+		"title":"Rate your sleep",
+		"description": "Select your rating below",
+		"close":"Rate",
+		"error": "Please select a rating first"
+	},
+	"syncfail":{
+		"title":"Failed to get data",
+		"description": "Something went wrong while trying to get data. Please turn your Sleep Shepherd off, and back on again, then press End Sleep again.",
+		"close":"Close"
+	},
+	"alg":{
+		"title":"Which plot is best?",
+		"description": "Which line, do you feel, most accurately represnts  your last night's sleep?",
+		"equal":"Equal",
+		"white":"White",
+		"black":"Black"
+	},
+	"bluetooth":{
+		"title":"Is bluetooth enabled?",
+		"description": "To get the most out of the app, make sure you have your Sleep Shepherd available and that bluetooth is enabled."
+	},
+	"volume":{
+		"title":"Change Volume",
+		"description": "Use the sliders to change the volume and balance of your Sleep Shepherd"
+	},
+	"alarm":{
+		"title":"Set your alarm time",
+		"description": "Set your desired alarm time",
+		"set":"Set Alarm",
+		"temporal": "Set alarm for %h% hrs %m% mins from now",
+		"error": "Please set alarm for at least 10 minutes from now",
+		"reminder": "Alarm set for: %h% hours %m% minutes from now"
+	},
+	"tutorial":{
+		"title":"Let's set up Sleep Shepherd",
+		"description1": "Let's take a couple minutes to set up your Sleep Shepherd",
+		"description2": "It will only take a few minutes",
+		"set":"Set Up"
+	},
+	"datacheck":{
+		"title":"We've found data",
+		"description": "It looks like there's some saved data on your Sleep Shepherd. Would you like to retrieve this data, or start recording new data?",
+		"description2": "It looks like there's <b>%h% hours</b> of data from <b>%m%/%d%/%y%</b> on the Sleep Shepherd. Would you like to retrieve this data, or start recording new data?",
+		"retrievedata":"Retrieve data",
+		"recordnew":"Record new"
+	},
+	"reconnect":{
+		"reconnect" : "Reconnect"
+	},
+	"error":{
+		"title": "Oops!",
+		"description": "Something went wrong, but rest assured that your data is safe. Try turning your Sleep Shepherd off and back on, and try again",
+		"error": "Error Code:"
+	},
+	"waketime":{
+		"title": "Does this look right?",
+		"description" : "It looks like your Sleep Shepherd stopped recording data around %h%:%M% %P%. Is this when you woke up?",
+		"correctime": "Yes",
+		"inccorecttime": "No, let me choose"
+	},
+	"setwaketime":{
+		"title": "What time did you wake up?",
+		"description": "Set the time below",
+		"settime": "Set Time"
+	}
+ },
+ 
+ "help":{
+	"lastsleep":{
+		"title":"Last Sleep Page",
+		"p1":"The Last Sleep page is the home page of the Sleep Shepherd app.",
+		"p2":"Here, you'll see an overview of your last sleep using your Sleep Shepherd",
+		"p3":"You'll see how much of your sleep was light sleep and deep sleep, and how long you were restless."
+	},
+	"sleeplab":{
+		"title":"Sleep Lab Page",
+		"p1":"The Sleep Lab page gives a more detailed look at your last night's sleep.",
+		"p2":"The Sleep Level chart gives your sleep level throughout the night so you can see when you were in deep and light sleep.",
+		"p3":"The Head Orientation chart shows the amount of time your head spent facing up, left, and right."
+	},
+	"trends":{
+		"title":"Trends Page",
+		"p1":"The Trends page shows you how you've progressed since using your Sleep Shepherd.",
+		"p2":"Select Daily, Weekly, or Monthly to see how your amount of total and quality sleep has changed.",
+		"p3":"The All Time tab displays statistics that are updated every time you use your Sleep Shepherd."
+	},
+	"settings":{
+		"title":"Settings Page",
+		"p1":"The Settings page allows you to change settings on your Sleep Shepherd right from the app.",
+		"p2":"Adjust the volume, set an alarm, and change the language of the app",
+		"p3":"In case you wish to connect to a different Sleep Shepherd (e.g. if another family member wants to connect their Sleep Shepherd), use the Forget Device button."
+	},"language":{
+		"title": "Choose Your Language",
+		"en": "English | English",
+		"zh": "中文(簡体字) | Chinese (Simp.)",
+		"zh_tr": "中文(繁體字) | Chinese (Trad.)",
+		"this": "English"
+	}
+ },
+ 
+ "loading":{
+	"processing":"Processing",
+	"disconnecting":"Disconnecting",
+	"starting":"Starting",
+	"retrieving":"Retrieving Data",
+	"loading":"Loading"
+ },
+ 
+ "plot":{
+	"hours": "hrs",
+	"left": "Left",
+	"up": "Up",
+	"right": "Right",
+	"other": "Upright/Other",
+	"standing": "Standing",
+	"headstand": "Headstand",
+	"down": "Down",
+	"minutes": "mins",
+	"minute": "min"
+ },
+ 
+ "formatting":{
+	"time":"%l<br>%p",
+	"timeAlt":"%h%:%M% %P%",
+	"daily":"%m%/%d%",
+	"weekly":"%m1%/%d1%-<br>%m2%/%d2%",
+	"monthly":{
+		"month1":"Jan",
+		"month2":"Feb",
+		"month3":"Mar",
+		"month4":"Apr",
+		"month5":"May",
+		"month6":"Jun",
+		"month7":"Jul",
+		"month8":"Aug",
+		"month9":"Sep",
+		"month10":"Oct",
+		"month11":"Nov",
+		"month12":"Dec"
+	},
+	"year":"%m%/%d%/%y%"
+ },
+ 
+ "tutorial":{
+	"welcome":{
+		"title":"Welcome to Sleep Shepherd",
+		"p":"This interactive tutorial will help you set up and learn about your Sleep Shepherd",
+		"button":{
+			"setup": "Set Up Device",
+			"later": "Later"
+		}
+	},
+	"connect":{
+		"title":"Connect to your Sleep Shepherd",
+		"p1":"Turn on your sleep Shepherd using the power switch located at the top of the case",
+		"p2":"After the blue LED stops blinking, the Sleep Shepherd is ready to function",
+		"p3":"Press the Connect button to initiate a bluetooth connection",
+		"connect": "Connect",
+		"back": "Back",
+		"img":"Power On.png"
+	},
+	"puton":{
+		"title":"Put on your band",
+		"p1":"Make sure the conductive fabric ear sensors sit over both ears and the forehead sensor is just above your left eyebrow",
+		"p2":"Make sure sensors contact skin, not hair",
+		"p3":"When you're done adjusting, press Next",
+		"next": "Next",
+		"img":"Sensor Diagram.png"
+	},
+	"signalstrength":{
+		"title":"Check signal strength",
+		"p1":"The Sleep Shepherd can measure your brain activity, but not without a good signal! ",
+		"p3":"Try to stay still while your signal strength is tested.",
+		"badsig":"Make sure all three sensors have firm contact against skin (not hair).",
+		"badsig2":"If needed, lightly dampen your skin with water. Do NOT dampen Sleep Shepherd sensors",
+		"goodsig":"Receiving good signal!",
+		"bad": "Poor",
+		"okay": "Okay",
+		"good": "Good",
+		"verygood": "Great",
+		"p2": "Press Next to Continue"
+	},
+	"volume":{
+		"title":"Adjust Volume",
+		"p1":"Position the speakers within their fabric pockets so that each speaker aligns with the natural indentation of your ear.",
+		"p2":"Use the slider to set the volume to your preferred level (can be adjusted later)",
+		"p3":"Make sure you can hear the tones at the same volume in each ear.",
+		"img":"Speaker Positioning Cropped.png"
+	},
+	"orientation":{
+		"title":"Track  head position",
+		"p1":"The Sleep Shepherd is able to track head position throughout the night",
+		"p2":"Now, lay down, alternate sleeping positions and watch the Sleep Shepherd automatically track your head position"
+	},
+	"track":{
+		"title":"Track your sleep",
+		"p1":"You can start tracking your sleep from anywhere in the app. Simply press the blue Start Sleep button at the bottom of any page",
+		"p2":"As soon as you wake up, be sure to sync new sleep data by pressing the yellow End Sleep button at the bottom of any page. Do not turn off the headband unit until you press End Sleep!",
+		"startimg":"Start Sleep.PNG",
+		"endimg":"End Sleep.PNG"
+	},
+	"finish":{
+		"title":"That's it! You're ready!",
+		"p":"You're ready to start using your Sleep Shepherd! Press Finish to begin exploring the app",
+		"finish": "Finish"
+	}
+ }
+
+ 
+ 
+
+}

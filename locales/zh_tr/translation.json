@@ -1,0 +1,362 @@
+{
+
+ "navbar": {
+   "header1": "上次睡眠",
+   "header2": "睡眠分析",
+   "header3": "睡眠記錄",
+   "header4" : "設置"
+ },
+ 
+  "lastsleep":{
+	"legend":{
+		"legend1":"深層睡眠",
+		"legend2":"淺層睡眠",
+		"legend3":"難以入睡",
+		"legend5":"清醒",
+		"legend4":"沒有腦電波訊號"
+	},
+	"scorelabel":"睡眠分數",
+	"pooreeg":"沒有腦電波訊號",
+	"average":"<from your average, not used>",
+	"table":{
+		"timetobed":"上床時間",
+		"waketime": "醒來時間",
+		"quality":"優質睡眠",
+		"tones":"<tones, not used>",
+		"rating": "您的睡眠評分"
+	},
+	"rating": "自我睡眠評分",
+	"withinnorm": "正常",
+	"earlier": "比平常早",
+	"later": "比平常遲",
+	"example": "例子"
+ },
+ 
+ "sleeplab":{
+	"title":{
+		"sleeplevel":"睡眠層次",
+		"headorientation":"頭部方向"
+	},
+	"btn-sleeplevel":"睡眠層次",
+	"btn-orientation": "頭部方向",
+	"table":{
+		"timetobed":"上床時間",
+		"waketime":"醒來時間",
+		"timeofuse":"使用時間",
+		"deepsleep":"深層睡眠時間",
+		"lightsleep":"淺層睡眠時間",
+		"awake":"清醒時間",
+		"woken":"清醒",
+		"score": "睡眠分數"
+	},
+	"rem": "快速動眼睡眠"
+ },
+ 
+ "trends":{
+	"title": {
+		"sleeps":"過去７次睡眠",
+		"weeks":"過去７星期",
+		"months":"過去７個月",
+		"alltime":"全部時間"
+	},
+	"btn":{
+		"daily":"每日",
+		"weekly":"每星期",
+		"monthly":"每月",
+		"alltime":"全部時間"
+	},
+	"table":{
+		"title": {
+			"sleeps":"過去７次睡眠平均數",
+			"weeks":"過去７星期平均數",
+			"months":"過去７個月平均數",
+			"alltime":"全部時間平均數"
+		},
+		"sleepscore":"睡眠分數",
+		"qualitysleep":"優質睡眠",
+		"deepsleep":"深層睡眠",
+		"tones":"<tones, not used>"
+	},
+	"pie":{
+		"avgscore": "平均睡眠分數",
+		"avgrating": "平均自我評分",
+		"avgbreakdown": "平均睡眠層次分佈"
+	}
+ },
+ 
+ "settings":{
+	"alttitle": "設置",
+	"btn":{
+		"connect":"連接",
+		"connecting":"正在連接",
+		"connected":"<connected, not used>",
+		"forget": "清除設備",
+		"disconnect": "<disconnect, not used>"
+	},
+	"slider":{
+		"volumelevel":"音量",
+		"volumebalance":"音量平衡"
+	},"message":{
+		"connect":"<message not used>",
+		"disconnect":"<message not used>"
+	},
+	"language": "語言",
+	"volume": "音量",
+	"alarm":"鬧鐘",
+	"on": "開",
+	"off":"關",
+	"tutorial":"設置指南"
+ },
+ 
+ "footer":{
+	"start":"開始睡眠",
+	"end": "結束睡眠"
+ },
+ 
+ "popup":{
+	"disconnected":{
+		"title":"連接中斷",
+		"description": "失去連接。 請確保智能助眠師已開啟及重新連接。",
+		"yes":"是",
+		"no": "否"
+	},
+	"setup":{
+		"title":"智能助眠系統在運作嗎?",
+		"description": "智能助眠系統上藍色LED燈是否亮著?",
+		"yes":"是",
+		"no": "否"
+	},
+	"connecttimeout":{
+		"title":"連接失敗",
+		"description": "未能連接助眠師。請先關閉助眠系統, 然後再開機重新連接。",
+		"close":"關閉"
+	},
+	"nodevices":{
+		"title":"找不到設備",
+		"description": "找不到智能助眠師, 請確保您的智能助眠師已開啟及重新連接。",
+		"close":"關閉"
+	},
+	"nodata":{
+		"title":"數據不全",
+		"description": "數據不全, 無法分析睡眠。請開始另一次睡眠。",
+		"close":"關閉"
+	},
+	"forgetdevice":{
+		"title":"要清除設備?",
+		"description": "如果要清除這設備,下次使用的時侯, 您需要重新設置。是否繼續？",
+		"yes":"清除",
+		"no": "取消"
+	},
+	"start":{
+		"title":"開啟成功",
+		"description": "現在可開始睡眠! 醒來時, 請按'結束睡眠'鍵, 以便上載數據到手機中。請完成上載數據後才關掉助眠系統。",
+		"close":"關閉"
+	},
+	"end":{
+		"title":"成功上載數據",
+		"description": "已成功上載數據! 請查看新的數據。",
+		"close":"關閉"
+	},
+	"nosaved":{
+		"title":"沒有已設置的設備",
+		"description": "沒有設置任何智能助眠師。",
+		"close":"關閉"
+	},
+	"rating":{
+		"title":"請為您的睡眠自我評分。",
+		"description": "請選擇您的分數",
+		"close":"確認",
+		"error": "請先選擇您的分數"
+	},
+	"syncfail":{
+		"title":"讀取數據失敗",
+		"description": "未能成功讀取數據。請關掉智能助眠師, 再開啟, 然後按'結束睡眠'。",
+		"close":"關閉"
+	},
+	"alg":{
+		"title":"<not used>",
+		"description": "<not used>",
+		"equal":"<not used>",
+		"white":"<not used>",
+		"black":"<not used>"
+	},
+	"bluetooth":{
+		"title":"已開啟藍牙?",
+		"description": "請確保藍牙已開啟才可以收集數據。"
+	},
+	"volume":{
+		"title":"更改音量",
+		"description": "請用以下的控制鈕調節音量及平衡。"
+	},
+	"alarm":{
+		"title":"設置鬧鐘",
+		"description": "設置響鬧時間",
+		"set":"設置鬧鐘",
+		"temporal": "鬧鐘響鬧時間距離現在%h%小時%m%分鐘",
+		"error": "設置鬧鐘的時間要距離現在至少10分鐘",
+		"reminder": "已設置鬧鐘: 距離現在%h%小時%m%分鐘"
+	},
+	"tutorial":{
+		"title":"設置智能助眠師",
+		"description1": "讓我們先設置智能助眠師。",
+		"description2": "只需幾分鐘",
+		"set":"設置"
+	},
+	"datacheck":{
+		"title":"我們找到未上載數據",
+		"description": "<not used>",
+		"description2": "您的智能助眠師存有%y%年%m%月%d%日%h%小時的數據, 您想上載這些數據或開始記錄新的數據?",
+		"retrievedata":"上載數據",
+		"recordnew":"記錄新數據"
+	},
+	"reconnect":{
+		"reconnect" : "重新連接"
+	},
+	"error":{
+		"title": "噢! ",
+		"description": "發生小小問題, 請放心, 您的數據仍然保留著。 請關掉智能助眠師, 然後再開啟。 ",
+		"error": "問題編號: "
+	}
+ },
+ 
+ "help":{
+	"lastsleep":{
+		"title":"上次睡眠頁面",
+		"p1":"上次睡眠頁面是Sleep Shepherd App 的主頁。",
+		"p2":"在這頁面, 您可預覽上一次睡眠的資料。",
+		"p3":"您會知道你睡眠時深層睡眠, 淺層睡眠及難以入睡時間的比例。"
+	},
+	"sleeplab":{
+		"title":"睡眠分析頁面",
+		"p1":"睡眠分析頁面會詳細分析您上次睡眠的狀况。",
+		"p2":"睡眠階段的曲線圖讓您知道您何時在深層睡眠或 淺層睡眠中。",
+		"p3":"頭部方向顯示睡眠時頭部朝向及睡的時間及睡眠層次的比例。"
+	},
+	"trends":{
+		"title":"睡眠記錄頁面",
+		"p1":"睡眠記錄頁面統計了使用助眠系统以後的睡眠的狀況。",
+		"p2":"通過選擇每日、每星期、每月，查看睡眠質量有什麼改變。",
+		"p3":"“全部時間”顯示了使用助眠系统後的平均數據。"
+	},
+	"settings":{
+		"title":"設置頁面",
+		"p1":"您可直接在設置頁面改變您的助眠系统的設定。",
+		"p2":"您可調節音量，設置鬧鐘及改變語言。",
+		"p3":"如果您想連接其他助眠系統，例如連接另一家庭成員的助眠系統，請按“清除設備”，然後再設置新的系統。"
+	},"language":{
+		"title": "選擇語言",
+		"en": "English | 英文",
+		"zh": "中文(簡体字) | 中文(簡体字)",
+		"zh_tr": "中文(繁體字) | 中文(繁體字)",
+		"this": "中文(繁體字)"
+	}
+ },
+
+  "loading":{
+	"processing":"進行中",
+	"disconnecting":"中斷中",
+	"starting":"開始",
+	"retrieving":"讀取數據",
+	"loading":"正在下載"
+ },
+ 
+ "plot":{
+	"hours": "小時",
+	"left": "向左面",
+	"up": "仰睡",
+	"right": "向右面",
+	"other": "坐著/起床/其他",
+	"standing": "站立",
+	"headstand": "倒立",
+	"down": "面向下",
+	"minutes":"分钟",
+	"minute":"分钟"
+ },
+ 
+ "formatting":{
+	"time":"%H:%M",
+	"timeAlt":"%H%:%M%",
+	"daily":"%d%/%m%",
+	"weekly":"%d1%/%m1%-<br>%d2%/%m2%",
+	"monthly":{
+		"month1":"一月",
+		"month2":"二月",
+		"month3":"三月",
+		"month4":"四月",
+		"month5":"五月",
+		"month6":"六月",
+		"month7":"七月",
+		"month8":"八月",
+		"month9":"九月",
+		"month10":"十月",
+		"month11":"十一月",
+		"month12":"十二月"
+	},
+	"year":"%d%/%m%/%y%"
+ },
+ 
+  "tutorial":{
+	"welcome":{
+		"title":"歡迎使用智能助眠師",
+		"p":"本指南將幫助您了解及設置智能助眠師",
+		"button":{
+			"setup": "設置設備",
+			"later": "稍後"
+		}
+	},
+	"connect":{
+		"title":"連接您的設備",
+		"p1":"智能助眠師的電源開關按鈕在盒子的上方。",
+		"p2":"智能助眠師的電源開關按鈕在盒子的上方。",
+		"p3":"按'連接'鍵開始連接藍牙",
+		"connect": "連接",
+		"back": "返回",
+		"img":"Power On Chinese Traditional.png"
+	},
+	"puton":{
+		"title":"請戴上智能助眠師",
+		"p1":"請確保兩側的傳感器緊貼您的耳朵。前額傳感器應置於您的左眼上方並緊貼前額。",
+		"p2":"請確保傳感器與皮膚充分接觸, 將前額和耳朵周圍的頭髮梳理開。",
+		"p3":"調好位置後，請按下一步。",
+		"next": "下一步",
+		"img":"Sensor Diagram Chinese Traditional.png"
+	},
+	"signalstrength":{
+		"title":"檢查訊號強度",
+		"p1":"智能助眠師需要有良好的訊號才能測量您的腦電波。",
+		"p3":"訊號測試中，請不要郁動。",
+		"badsig":"請確保3個傳感器與皮膚充分接觸(請撥開頭髮)。",
+		"badsig2":"如有需要, 請用水輕抹前額。不要弄濕傳感器。",
+		"goodsig":"訊號良好!",
+		"bad": "差",
+		"okay": "一般",
+		"good": "好",
+		"verygood": "非常好",
+		"p2": "點擊下一步繼續。"
+	},
+	"volume":{
+		"title":"調節音量",
+		"p1":"請將傳感器內的揚聲器調節到您的耳窩的位置。",
+		"p2":"請用以下的控制鈕調節音量 (您亦可稍後再調節)。",
+		"p3":"請確保兩邊耳朵都聽到同樣音量。",
+		"img":"Speaker Positioning Chinese Traditional Cropped.png"
+	},
+	"orientation":{
+		"title":"監測頭部方向",
+		"p1":"智能助眠師能監測您整晚睡眠時頭部的方向。",
+		"p2":"現在, 請躺下, 轉換睡眠姿態, 讓智能助眠師監測您頭部的方向。"
+	},
+	"track":{
+		"title":"監測睡眠",
+		"p1":"您可在任何頁面開始睡眠監測。只需按下當前頁面下面的“開始睡眠”鍵。",
+		"p2":"當您起床後, 在任何一個頁面點擊黃色的'結束睡眠'按鈕，助眠系統會自動將數據同步上載到手機App中。請完成上載數據後才關掉助眠系統。",
+		"startimg":"Start Sleep Chinese Traditional.png",
+		"endimg":"End Sleep Chinese Traditional.png"
+	},
+	"finish":{
+		"title":"您已完成設置。",
+		"p":"您可隨時啟動智能助眠師。現按“完成”鍵即可使用。",
+		"finish": "完成"
+	}
+ }
+}
