@@ -648,12 +648,7 @@ var app = {
 								addaccount(playerfirst, playerlast, cid, passw);
 								currentplayeruserid = cid;
 						//		$( ":mobile-pagecontainer" ).pagecontainer( "change", "#home");		
-<<<<<<< HEAD
 								console.log("user account added successfully");							
-=======
-								console.log("user account added successfully");	
-								$('#continuesavePopup').popup('open');									
->>>>>>> origin/master
 							}	
 						}, function (error) {
 							console.log('find error: ' + error.message);
@@ -661,11 +656,7 @@ var app = {
 					});
 				}
 				flagcreateid=false;		
-<<<<<<< HEAD
 				$('#continuesavePopup').popup('open');				
-=======
-							
->>>>>>> origin/master
 			}
 		});	
 

@@ -113,7 +113,7 @@ body {
   -webkit-tap-highlight-color: rgba(0,0,0,0); 
 
   /* prevent copy paste, to allow, change 'none' to 'text' */
-  -webkit-user-select: text; /* changedYi : original  -webkit-user-select: none; */
+  -webkit-user-select: text; /* changedYi by Yi: original  -webkit-user-select: none; */
 }
 
 html{
